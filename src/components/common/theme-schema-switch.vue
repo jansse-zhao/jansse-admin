@@ -16,7 +16,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   showTooltip: true,
-  tooltipPlacement: 'bottom'
+  tooltipPlacement: 'right'
 });
 
 interface Emits {

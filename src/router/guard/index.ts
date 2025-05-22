@@ -9,7 +9,9 @@ import { createDocumentTitleGuard } from './title';
  * @param router - Router instance
  */
 export function createRouterGuard(router: Router) {
+  // 设置组件加载进度条
   createProgressGuard(router);
   createRouteGuard(router);
+  // 设置标题名称
   createDocumentTitleGuard(router);
 }

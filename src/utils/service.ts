@@ -16,11 +16,14 @@ export function createServiceConfig(env: Env.ImportMeta) {
     console.error('VITE_OTHER_SERVICE_BASE_URL is not a valid json5 string');
   }
 
+  /** baseURL: "https://mock.apifox.cn/m1/3109515-0-default", other: { "demo": "http://localhost:9528" } */
+
   const httpConfig: App.Service.SimpleServiceConfig = {
     baseURL: VITE_SERVICE_BASE_URL,
     other
   };
 
+  // otherHttpKeys = ['demo']
   const otherHttpKeys = Object.keys(httpConfig.other) as App.Service.OtherBaseURLKey[];
 
   const otherConfig: App.Service.OtherServiceConfigItem[] = otherHttpKeys.map(key => {
@@ -31,6 +34,7 @@ export function createServiceConfig(env: Env.ImportMeta) {
     };
   });
 
+  // baseURL: "https://mock.apifox.cn/m1/3109515-0-default", proxyPattern:"/proxy-default", other: { "demo": "http://localhost:9528" }
   const config: App.Service.ServiceConfig = {
     baseURL: httpConfig.baseURL,
     proxyPattern: createProxyPattern(),

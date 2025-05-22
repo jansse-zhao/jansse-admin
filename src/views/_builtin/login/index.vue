@@ -61,7 +61,7 @@ const bgColor = computed(() => {
           <div class="i-flex-col">
             <ThemeSchemaSwitch
               :theme-schema="themeStore.themeScheme"
-              :show-tooltip="false"
+              :show-tooltip="true"
               class="text-20px lt-sm:text-18px"
               @switch="themeStore.toggleThemeScheme"
             />
@@ -69,7 +69,7 @@ const bgColor = computed(() => {
               v-if="themeStore.header.multilingual.visible"
               :lang="appStore.locale"
               :lang-options="appStore.localeOptions"
-              :show-tooltip="false"
+              :show-tooltip="true"
               @change-lang="appStore.changeLocale"
             />
           </div>

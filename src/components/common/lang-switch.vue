@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import type { PopoverPlacement } from 'naive-ui';
 import { $t } from '@/locales';
 
 defineOptions({
@@ -13,10 +14,13 @@ interface Props {
   langOptions: App.I18n.LangOption[];
   /** Show tooltip */
   showTooltip?: boolean;
+  /** Tooltip placement */
+  tooltipPlacement?: PopoverPlacement;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  showTooltip: true
+  showTooltip: true,
+  tooltipPlacement: 'right'
 });
 
 type Emits = {
@@ -39,7 +43,7 @@ function changeLang(lang: App.I18n.LangType) {
 <template>
   <NDropdown :value="lang" :options="langOptions" trigger="hover" @select="changeLang">
     <div>
-      <ButtonIcon :tooltip-content="tooltipContent" tooltip-placement="left">
+      <ButtonIcon :tooltip-content="tooltipContent" :tooltip-placement="tooltipPlacement">
         <SvgIcon icon="heroicons:language" />
       </ButtonIcon>
     </div>
