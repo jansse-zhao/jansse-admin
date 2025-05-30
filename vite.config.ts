@@ -9,6 +9,7 @@ export default defineConfig(configEnv => {
 
   const buildTime = getBuildTime();
 
+  // `vite dev` → command: 'serve', Vite开发环境下configEnv.command=serve
   const enableProxy = configEnv.command === 'serve' && !configEnv.isPreview;
 
   return {

@@ -41,6 +41,11 @@ export function createServiceConfig(env: Env.ImportMeta) {
     other: otherConfig
   };
 
+  /**
+   * config = { baseURL: 'https://mock.apifox.cn/m1/3109515-0-default', proxyPattern: '/proxy-default', other: [ { key:
+   * 'demo', baseURL: 'http://localhost:9528', proxyPattern: '/proxy-demo' } ] }
+   */
+
   return config;
 }
 
@@ -71,6 +76,7 @@ export function getServiceBaseURL(env: Env.ImportMeta, isProxy: boolean) {
  * @param key If not set, will use the default key
  */
 function createProxyPattern(key?: App.Service.OtherBaseURLKey) {
+  // key为空时，使用默认的代理前缀
   if (!key) {
     return '/proxy-default';
   }
